@@ -16,10 +16,14 @@ QtApplication {
     ]
 
     files: [
+        "animation.cpp",
+        "animation.h",
         "main.cpp",
         "mainwindow.cpp",
         "mainwindow.h",
         "mainwindow.ui",
+        "tools.cpp",
+        "tools.h",
     ]
 
     install: true

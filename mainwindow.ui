@@ -51,7 +51,7 @@
          <string notr="true">color:rgb(255, 2, 35)</string>
         </property>
         <property name="text">
-         <string>.</string>
+         <string>0</string>
         </property>
        </widget>
       </item>
