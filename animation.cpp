@@ -47,8 +47,6 @@ void Animation::run(){
             if(i == 49){
                 *MODE = PAUSE_MODE;
             }
-            //节省资源占用
-            QThread::msleep(1);
         }
         ONCE_CALL = 0;
 
