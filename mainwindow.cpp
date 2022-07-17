@@ -14,13 +14,19 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     setWindowFlags(Qt::FramelessWindowHint);//无边框
     setAttribute(Qt::WA_TranslucentBackground);//背景透明
+    m_areaMovable = geometry();//客户区
+    m_bPressed = false;
+    w_moveable = true;//初始设置可移动
 
     /*-------------------------菜单代码-------------------------*/
     m_contextMenu = new QMenu;  //创建菜单
-    m_CNAction = new QAction(tr("change"),this);//创建事件
+    m_CNAction = new QAction(tr("help"),this);//创建事件
+    m_mvTRghtBttm = new QAction(tr("fix on right bottom"),this);//固定在右下角
     m_contextMenu->addAction(m_CNAction); //添加事件
+    m_contextMenu->addAction(m_mvTRghtBttm);
     //connect()用作Action和函数的链接
-    connect ( m_CNAction, SIGNAL ( triggered() ), this,SLOT( test() )); /* New点击事件调用test */
+    connect ( m_CNAction, SIGNAL ( triggered() ), this,SLOT( postHelp() ) ); /* New点击事件调用test */
+    connect ( m_mvTRghtBttm, SIGNAL ( triggered() ), this,SLOT( moveToRightBottom() ) );
     /*----------------------------------------------------------*/
 
     a = new Animation(ui->label,ui->label_2,ui->label_3,ui->label_4,ui->label_5,ui->label_6,ui->label_7,ui->label_8,&MODE);
@@ -72,12 +78,13 @@ void MainWindow::keyPressEvent(QKeyEvent *event){
 
 //重写enterEvent函数
 void MainWindow::enterEvent(QEvent *){
-    //setWindowFlags(Qt::Frame);
+    //setWindowFlags(Qt::frame);
     this->setStyleSheet("background-color:rgba(244,244,244,10)");
+    //ui->centralwidget->setStyleSheet("background-color:rgba(244,244,244,10)");
 }
 
 void MainWindow::leaveEvent(QEvent *){
-    this->setStyleSheet("background-color:rgba(244,244,244,0)");
+    this->setStyleSheet("background-color:rgba(244,244,244,0.01)");
 }
 
 void MainWindow::mousePressEvent(QMouseEvent *e){
@@ -86,6 +93,11 @@ void MainWindow::mousePressEvent(QMouseEvent *e){
         //cout << "RightButton Clicked" << "+" << times << endl;
         //times++;
         m_contextMenu->exec(e->globalPos());    //显示菜单并使其在鼠标右击的位置出现
+    }else if(e->button() == Qt::LeftButton){
+        //包括判断
+        //e->pos()返回当前鼠标位置
+        m_ptPress = e->pos();
+        m_bPressed = m_areaMovable.contains(m_ptPress);
     }
 
 }
@@ -94,3 +106,45 @@ void MainWindow::test(){
     cout << "nb" << endl;
 }
 
+void MainWindow::postHelp(){
+    //cout << "nn" << endl;
+    //this传入后会把CSS样式表也统一
+    QMessageBox m/*(this)*/;
+    m.setWindowTitle(tr("Help"));
+    m.setText(tr("'C' to change figure.\n'T' to change to time mode.\n'Esc' to exit."));
+    m.exec();
+    //qDebug("dui");
+    //QMessageBox::information(NULL,tr("Help"),tr("Press 'C' to change figure.\nPress 'T' to change to time mode."),QMessageBox::Ok);
+}
+
+void MainWindow::mouseMoveEvent(QMouseEvent *e){
+    if(m_bPressed && w_moveable == true){
+        //移动
+        move(pos() + e->pos() - m_ptPress);
+    }
+}
+
+void MainWindow::mouseReleaseEvent(QMouseEvent *){
+    //当松开时，isPressed = false
+    m_bPressed = false;
+}
+
+//设置鼠标按下的区域
+void MainWindow::setAreaMovable(const QRect rt){
+    if(m_areaMovable != rt){
+        m_areaMovable = rt;
+    }
+}
+
+void MainWindow::moveToRightBottom(){
+    //this->setGeometry();
+    if(m_mvTRghtBttm->text() == tr("fix on right bottom")){
+        this->move(QApplication::desktop()->availableGeometry().width() - this->geometry().width()
+                   ,QApplication::desktop()->availableGeometry().height() - this->geometry().height());
+        m_mvTRghtBttm->setText(tr("recover"));
+        w_moveable = false;
+    }else if(m_mvTRghtBttm->text() == tr("recover")){
+        w_moveable = true;
+        m_mvTRghtBttm->setText(tr("fix on right bottom"));
+    }
+}

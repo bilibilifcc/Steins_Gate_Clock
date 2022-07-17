@@ -29,7 +29,7 @@ Animation::Animation(QLabel *lab_1,QLabel *lab_2,QLabel *lab_3,QLabel *lab_4,QLa
 
 void Animation::run(){
     while(*MODE != EXIT_MODE){
-        for(int i=0;i<50 && *MODE == GATE_MODE;i++){
+        for(int i=0;i<70 && *MODE == GATE_MODE;i++){
             if(ONCE_CALL == 0){
                 l2->setText(".");
                 ONCE_CALL++;
@@ -44,7 +44,7 @@ void Animation::run(){
             //QWidget::repaint();//每次改变要求重绘
             QThread::msleep(10);//改变一次的间隔
             //效率低下
-            if(i == 49){
+            if(i == 69){
                 *MODE = PAUSE_MODE;
             }
         }

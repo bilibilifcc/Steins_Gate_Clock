@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -16,8 +19,18 @@
     <height>176</height>
    </size>
   </property>
+  <property name="font">
+   <font>
+    <family>Agency FB</family>
+    <weight>50</weight>
+    <bold>false</bold>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -27,15 +40,18 @@
        <widget class="QLabel" name="label">
         <property name="font">
          <font>
-          <family>Consolas</family>
+          <family>Agency FB</family>
           <pointsize>72</pointsize>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color:rgb(255, 2, 35)</string>
+         <string notr="true">color:rgba(178, 31, 0 ,0.9)</string>
         </property>
         <property name="text">
          <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -43,15 +59,18 @@
        <widget class="QLabel" name="label_2">
         <property name="font">
          <font>
-          <family>Consolas</family>
+          <family>Agency FB</family>
           <pointsize>72</pointsize>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color:rgb(255, 2, 35)</string>
+         <string notr="true">color:rgba(178, 31, 0 ,0.9)</string>
         </property>
         <property name="text">
          <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -59,15 +78,18 @@
        <widget class="QLabel" name="label_3">
         <property name="font">
          <font>
-          <family>Consolas</family>
+          <family>Agency FB</family>
           <pointsize>72</pointsize>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color:rgb(255, 2, 35)</string>
+         <string notr="true">color:rgba(178, 31, 0 ,0.9)</string>
         </property>
         <property name="text">
          <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -75,15 +97,18 @@
        <widget class="QLabel" name="label_4">
         <property name="font">
          <font>
-          <family>Consolas</family>
+          <family>Agency FB</family>
           <pointsize>72</pointsize>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color:rgb(255, 2, 35)</string>
+         <string notr="true">color:rgba(178, 31, 0 ,0.9)</string>
         </property>
         <property name="text">
          <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -91,15 +116,18 @@
        <widget class="QLabel" name="label_5">
         <property name="font">
          <font>
-          <family>Consolas</family>
+          <family>Agency FB</family>
           <pointsize>72</pointsize>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color:rgb(255, 2, 35)</string>
+         <string notr="true">color:rgba(178, 31, 0 ,0.9)</string>
         </property>
         <property name="text">
          <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -107,15 +135,18 @@
        <widget class="QLabel" name="label_6">
         <property name="font">
          <font>
-          <family>Consolas</family>
+          <family>Agency FB</family>
           <pointsize>72</pointsize>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color:rgb(255, 2, 35)</string>
+         <string notr="true">color:rgba(178, 31, 0 ,0.9)</string>
         </property>
         <property name="text">
          <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -123,15 +154,18 @@
        <widget class="QLabel" name="label_7">
         <property name="font">
          <font>
-          <family>Consolas</family>
+          <family>Agency FB</family>
           <pointsize>72</pointsize>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color:rgb(255, 2, 35)</string>
+         <string notr="true">color:rgba(178, 31, 0 ,0.9)</string>
         </property>
         <property name="text">
          <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -139,15 +173,18 @@
        <widget class="QLabel" name="label_8">
         <property name="font">
          <font>
-          <family>Consolas</family>
+          <family>Agency FB</family>
           <pointsize>72</pointsize>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color:rgb(255, 2, 35)</string>
+         <string notr="true">color:rgba(178, 31, 0 ,0.9)</string>
         </property>
         <property name="text">
          <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -161,7 +198,7 @@
      <x>0</x>
      <y>0</y>
      <width>486</width>
-     <height>22</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
